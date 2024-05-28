@@ -8,65 +8,57 @@ import { useEffect } from "react";
 import { Card } from "../Card/Card";
 import Styles from "./CardsSlider.module.css";
 import Link from "next/link";
-import { data } from "@/app/data/data"
+
 export const CardsSlider = (props) => {
   useEffect(() => {
     const options = {
-        loop: false,
-        spaceBetween: 10,
-        allowTouchMove: true,
-        slidesPerView: 1,
-
-        autoplay: {
-            enabled: false,
-
-        },
-        Pagination: {
-            el: ".swiper-pagination",
-            type: "fraction",
+      loop: false,
+      spaceBetween: 10,
+      allowTouchMove: true,
+      slidesPerView: 1,
+      autoplay: {
+        enabled: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+        enabled: true,
+        clickable: true,
+      },
+      breakpoints: {
+        450: {
+          loop: true,
+          spaceBetween: 20,
+          allowTouchMove: false,
+          slidesPerView: "auto",
+          speed: 6500,
+          autoplay: {
             enabled: true,
-            clickable: true
+            delay: 0,
+          },
+          pagination: {
+            enabled: false,
+          },
         },
-        breakpoints: {
-            450: {
-                loop: true,
-                spaceBetween: 20,
-                allowTouchMove: false,
-                slidesPerView: "auto",
-                
-                speed: 6500,
-                autoplay: {
-                    enabled: true,
-                    delay: 0
-                },
-                pagination: {
-                    
-                    enabled: false,
-                    
-                },
-            },
-        },
-        modules: [Autoplay, Pagination],
-
-    }
+      },
+      modules: [Autoplay, Pagination],
+    };
     new Swiper(".swiper", options);
   }, []);
   return (
-    <>
-      <div className={`swiper ${Styles["slider"]}`}>
-        <ul className={`swiper-wrapper ${Styles["slider-wrapper"]}`}>
-          {data.map((item, i) => {
-            return (
-              <li className={`swiper-slide ${Styles["slide"]}`} key={i}>
-                <Link href={`/games/${item.id}`}>
-                  <Card {...item} />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={`swiper-pagination ${Styles["pagination"]}`}></div>
-      </div>
-    </>
+    <div className={`swiper ${Styles["slider"]}`}>
+      <ul className={`swiper-wrapper ${Styles["slider-wrapper"]}`}>
+        {props.data.map((item, i) => {
+          return (
+            <li className={`swiper-slide ${Styles["slide"]}`} key={i}>
+              <Link href={`/games/${item.id}`}>
+                <Card {...item} />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <div className={`swiper-pagination ${Styles["pagination"]}`}></div>
+    </div>
   );
 };

@@ -1,22 +1,22 @@
 {
-  "name": "pindie-theme-1",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "git": "^0.1.5",
-    "next": "^14.0.4",
-    "promise": "^8.3.0",
-    "props": "^0.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18",
-    "swiper": "^11.0.6",
-    "zustand": "^4.5.0"
-  }
+    "name": "pindie-theme-1",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "git": "^0.1.5",
+        "next": "^14.0.4",
+        "promise": "^8.3.0",
+        "props": "^0.3.0",
+        "react": "^18.3.1",
+        "react-dom": "^18",
+        "swiper": "^11.0.6",
+        "zustand": "^4.5.0"
+    }
 }
