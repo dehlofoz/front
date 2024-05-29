@@ -6,9 +6,9 @@ export const useStore = create((set) => ({
     isAuth: false,
     user: null,
     token: null,
-    login: (user, token) => {
-        set({ isAuth: true, user, token });
-        setJWT(token);
+    login: (user, jwt) => {
+        set({ isAuth: true, user: { ...user, id: user._id }, token: jwt });
+        setJWT(jwt);
     },
     logout: () => {
         set({ isAuth: false, user: null, token: null });
@@ -19,7 +19,7 @@ export const useStore = create((set) => ({
         if (jwt) {
             const user = await getMe(endpoints.me, jwt);
             if (user) {
-              set({ isAuth: true, user, token: jwt });
+              set({ isAuth: true, user: { ...user, id: user._id }, token: jwt });
               setJWT(jwt);
             } else {
               set({ isAuth: false, user: null, token: null });
@@ -30,3 +30,8 @@ export const useStore = create((set) => ({
         }
     },
 }));
+
+
+
+
+

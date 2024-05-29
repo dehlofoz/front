@@ -60,9 +60,10 @@ export const CardsSlider = (props) => {
           <li className="swiper-slide">
             Нет данных для отображения
           </li>
-        )} 
+        )}
       </ul>
       <div className={`swiper-pagination ${Styles["pagination"]}`}></div>
     </div>
   );
 };
+
